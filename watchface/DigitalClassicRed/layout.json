@@ -1,0 +1,464 @@
+{
+  "$schema": "../../schemas/layout.schema.json",
+  "formatVersion": 1,
+  "canvas": {
+    "width": 212,
+    "height": 520,
+    "clip": "pill"
+  },
+  "assets": {
+    "digitSets": {
+      "large": {
+        "digits": [
+          "assets/digits-large/0.svg",
+          "assets/digits-large/1.svg",
+          "assets/digits-large/2.svg",
+          "assets/digits-large/3.svg",
+          "assets/digits-large/4.svg",
+          "assets/digits-large/5.svg",
+          "assets/digits-large/6.svg",
+          "assets/digits-large/7.svg",
+          "assets/digits-large/8.svg",
+          "assets/digits-large/9.svg"
+        ],
+        "minus": "assets/digits-large/minus.svg"
+      },
+      "small": {
+        "digits": [
+          "assets/digits-small/0.svg",
+          "assets/digits-small/1.svg",
+          "assets/digits-small/2.svg",
+          "assets/digits-small/3.svg",
+          "assets/digits-small/4.svg",
+          "assets/digits-small/5.svg",
+          "assets/digits-small/6.svg",
+          "assets/digits-small/7.svg",
+          "assets/digits-small/8.svg",
+          "assets/digits-small/9.svg"
+        ],
+        "minus": "assets/digits-small/minus.svg"
+      }
+    }
+  },
+  "normal": {
+    "background": "#000000",
+    "widgets": [
+      {
+        "id": "background-art",
+        "label": "Metallic analog dial and red accents",
+        "type": "image",
+        "asset": "assets/background/watchface-bg.png",
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "locked": true
+      },
+      {
+        "id": "hours",
+        "label": "Digital hours",
+        "type": "number",
+        "source": "hour",
+        "digitSet": "large",
+        "digits": 2,
+        "align": "right",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 91,
+        "y": 329,
+        "z": 2
+      },
+      {
+        "id": "time-colon",
+        "label": "Colon",
+        "type": "image",
+        "asset": "assets/date/colon.svg",
+        "x": 101,
+        "y": 307,
+        "z": 3
+      },
+      {
+        "id": "minutes",
+        "label": "Digital minutes",
+        "type": "number",
+        "source": "minute",
+        "digitSet": "large",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 121,
+        "y": 329,
+        "z": 4
+      },
+      {
+        "id": "year",
+        "label": "Year",
+        "type": "number",
+        "source": "year",
+        "digitSet": "small",
+        "digits": 4,
+        "align": "right",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 66,
+        "y": 385,
+        "z": 5
+      },
+      {
+        "id": "slash-1",
+        "label": "Date slash",
+        "type": "image",
+        "asset": "assets/date/slash.svg",
+        "x": 69,
+        "y": 376,
+        "z": 6
+      },
+      {
+        "id": "month",
+        "label": "Month",
+        "type": "number",
+        "source": "month",
+        "digitSet": "small",
+        "digits": 2,
+        "align": "right",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 91,
+        "y": 385,
+        "z": 7
+      },
+      {
+        "id": "slash-2",
+        "label": "Date slash",
+        "type": "image",
+        "asset": "assets/date/slash.svg",
+        "x": 94,
+        "y": 376,
+        "z": 8
+      },
+      {
+        "id": "day",
+        "label": "Day",
+        "type": "number",
+        "source": "day",
+        "digitSet": "small",
+        "digits": 2,
+        "align": "right",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 116,
+        "y": 385,
+        "z": 9
+      },
+      {
+        "id": "weekday",
+        "label": "Japanese weekday",
+        "type": "image-list",
+        "source": "weekday",
+        "fallback": "exact",
+        "items": [
+          {
+            "value": 0,
+            "asset": "assets/date/weekday-0.svg",
+            "label": "日"
+          },
+          {
+            "value": 1,
+            "asset": "assets/date/weekday-1.svg",
+            "label": "月"
+          },
+          {
+            "value": 2,
+            "asset": "assets/date/weekday-2.svg",
+            "label": "火"
+          },
+          {
+            "value": 3,
+            "asset": "assets/date/weekday-3.svg",
+            "label": "水"
+          },
+          {
+            "value": 4,
+            "asset": "assets/date/weekday-4.svg",
+            "label": "木"
+          },
+          {
+            "value": 5,
+            "asset": "assets/date/weekday-5.svg",
+            "label": "金"
+          },
+          {
+            "value": 6,
+            "asset": "assets/date/weekday-6.svg",
+            "label": "土"
+          }
+        ],
+        "x": 137,
+        "y": 376,
+        "z": 10
+      },
+      {
+        "id": "weather-icon",
+        "label": "Weather icon",
+        "type": "image-list",
+        "source": "weatherCondition",
+        "fallback": "floor",
+        "items": [
+          {
+            "value": 0,
+            "asset": "assets/weather/clear.svg",
+            "label": "clear"
+          },
+          {
+            "value": 1,
+            "asset": "assets/weather/cloudy.svg",
+            "label": "cloudy"
+          },
+          {
+            "value": 2,
+            "asset": "assets/weather/cloudy.svg",
+            "label": "cloudy"
+          },
+          {
+            "value": 3,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 4,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 5,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 6,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 7,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 8,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 9,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 10,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 11,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 12,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 13,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 14,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 15,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 16,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 17,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 18,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 19,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 20,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 21,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 22,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 23,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 24,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 25,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          },
+          {
+            "value": 26,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 27,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 28,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 29,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 30,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 31,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 32,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 33,
+            "asset": "assets/weather/snow.svg",
+            "label": "snow"
+          },
+          {
+            "value": 49,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 53,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 54,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 55,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 56,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 57,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 58,
+            "asset": "assets/weather/fog.svg",
+            "label": "fog"
+          },
+          {
+            "value": 99,
+            "asset": "assets/weather/unknown.svg",
+            "label": "unknown"
+          },
+          {
+            "value": 301,
+            "asset": "assets/weather/rain.svg",
+            "label": "rain"
+          }
+        ],
+        "x": 78,
+        "y": 421,
+        "z": 11
+      },
+      {
+        "id": "temperature",
+        "label": "Temperature",
+        "type": "number",
+        "source": "temperatureC",
+        "digitSet": "small",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": false,
+        "unitAsset": "assets/units/degree-c.svg",
+        "x": 116,
+        "y": 423,
+        "z": 12
+      },
+      {
+        "id": "battery-value",
+        "label": "Battery percent only",
+        "type": "number",
+        "source": "battery",
+        "digitSet": "small",
+        "digits": 3,
+        "align": "center",
+        "spacing": 0,
+        "leadingZero": false,
+        "unitAsset": "assets/units/percent.svg",
+        "x": 106,
+        "y": 472,
+        "z": 13
+      }
+    ]
+  },
+  "aod": {
+    "enabled": false,
+    "background": "#000000",
+    "widgets": []
+  }
+}
