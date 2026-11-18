@@ -52,6 +52,10 @@ jobs:
         working-directory: toolkit
         run: npm run band10 -- package examples/DigitalClassicRed --target native
 
+      - name: Inspect generated face
+        working-directory: toolkit
+        run: npm run band10 -- inspect examples/DigitalClassicRed/dist/digital-classic-red.face
+
       - name: Upload generated files
         uses: actions/upload-artifact@v4
         with:
