@@ -1,0 +1,63 @@
+name: Build Xiaomi Smart Band 10 watch face
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "watchface/**"
+      - ".github/workflows/build-watchface.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout watch-face project
+        uses: actions/checkout@v4
+
+      - name: Checkout Band 10 Toolkit
+        uses: actions/checkout@v4
+        with:
+          repository: utsabfdahal/band10-toolkit
+          path: toolkit
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: toolkit/package-lock.json
+
+      - name: Install toolkit dependencies
+        working-directory: toolkit
+        run: npm ci
+
+      - name: Add watch-face project to toolkit
+        run: |
+          test -f watchface/DigitalClassicRed/manifest.json
+          mkdir -p toolkit/examples/DigitalClassicRed
+          cp -a watchface/DigitalClassicRed/. toolkit/examples/DigitalClassicRed/
+
+      - name: Validate
+        working-directory: toolkit
+        run: npm run band10 -- validate examples/DigitalClassicRed
+
+      - name: Build
+        working-directory: toolkit
+        run: npm run band10 -- build examples/DigitalClassicRed
+
+      - name: Package native face
+        working-directory: toolkit
+        run: npm run band10 -- package examples/DigitalClassicRed --target native
+
+      - name: Upload generated files
+        uses: actions/upload-artifact@v4
+        with:
+          name: DigitalClassicRed-watchface
+          path: |
+            toolkit/examples/DigitalClassicRed/dist/*.face
+            toolkit/examples/DigitalClassicRed/dist/*.bin
+          if-no-files-found: error
+          retention-days: 30
